@@ -2,9 +2,9 @@
 #include <unistd.h>
 #include "main.h"
 /**
- * main - Entry point
+ * print_alphabet - Prints the alphabet in lowercase, followed by a new line.
  *
- * Return: Always 0 (Success)
+ * Return: void
  */
 void print_alphabet(void)
 {
