@@ -4,8 +4,6 @@
  * @size: The size of the square (number of # characters per side).
  */
 
-#include "main.h"
-
 void print_square(int size)
 {
 int i, j;
