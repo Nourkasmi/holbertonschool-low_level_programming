@@ -6,20 +6,20 @@
  *
  * Return: A pointer to the modified string.
  */
+
 char *cap_string(char *str)
 {
 int i = 0;
 int j;
-char *separators = " \t\n,;.!?\"(){}";
+int sept[] = {9, 10, 32, 44, 46, 59, 33, 63, 34, 40, 41, 123, 125};
 if (str[i] >= 'a' && str[i] <= 'z')
 str[i] -= 32;
 while (str[i] != '\0')
 {
-for (j = 0; separators[j] != '\0'; j++)
+for (j = 0; j < 13; j++)
 {
-if (str[i] == separators[j])
+if (str[i] == sept[j] && (str[i + 1] >= 'a' && str[i + 1] <= 'z'))
 {
-if (str[i + 1] >= 'a' && str[i + 1] <= 'z')
 str[i + 1] -= 32;
 break;
 }
