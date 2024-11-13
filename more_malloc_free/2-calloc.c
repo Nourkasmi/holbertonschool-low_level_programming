@@ -14,7 +14,7 @@ if (nmemb == 0 || size == 0)
 return (NULL);
 ptr = malloc(nmemb * size);
 if (ptr == NULL)
-return (NULL);
+exit(98);
 memset(ptr, 0, nmemb * size);
 return (ptr);
 }
