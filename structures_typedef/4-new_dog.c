@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "dog.h"
 
 /**
@@ -6,27 +5,43 @@
  * @name: the  dog name
  * @age: age of the dog
  * @owner: the owner
- * Return: dog
+ * Return: dog_t
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-dog_t *dog;
-if (name == NULL || owner == NULL) 
-return (NULL);
-dog = malloc(sizeof(dog_t));
-if (dog == NULL)
-return (NULL);
-dog->name = malloc(sizeof(char) * (strlen(name) + 1));
-dog->owner = malloc(sizeof(char) * (strlen(owner) + 1));
-if (dog->name == NULL || dog->owner == NULL)
+dog_t *newdog;
+if (name == NULL)
 {
-free(dog->name);  
-free(dog->owner);
-free(dog);
 return (NULL);
 }
-strcpy(dog->name, name);
-strcpy(dog->owner, owner);
-dog->age = age;
-return (dog);
+if (owner == NULL)
+{
+return (NULL);
+}
+if (age < 0)
+{
+return (NULL);
+}
+newdog = malloc(sizeof(dog_t));
+if (newdog == NULL)
+{
+return (NULL);
+}
+newdog->name = malloc(sizeof(char) * (strlen(name) + 1));
+if (newdog->name == NULL)
+{
+free(newdog);
+return (NULL);
+}
+newdog->owner = malloc(sizeof(char) * (strlen(owner) + 1));
+if (newdog->owner == NULL)
+{
+free(newdog);
+free(newdog->name);
+return (NULL);
+}
+newdog->name = strcpy(newdog->name, name);
+newdog->age = age;
+newdog->owner = strcpy(newdog->owner, owner);
+return (newdog);
 }
