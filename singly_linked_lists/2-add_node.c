@@ -23,7 +23,7 @@ free(duplicat_str);
 return (NULL);
 }
 new_node->str = duplicat_str;
-new_node->len = strlen(dup_str);
+new_node->len = strlen(duplicat_str);
 new_node->next = *head;
 *head = new_node;
 return (new_node);
