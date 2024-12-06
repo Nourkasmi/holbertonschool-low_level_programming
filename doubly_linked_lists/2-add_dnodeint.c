@@ -15,4 +15,18 @@ if (!new_node || !head)
 free(new_node);
 return (NULL);
 }
+new_node->n = n;
+new_node->prev = NULL;
+if (!*head)
+{
+*head = new_node;
+new_node->next = NULL;
+}
+else
+{
+new_node->next = *head;
+(*head)->prev = new_node;
+*head = new_node;
+}
+return (new_node);
 }
