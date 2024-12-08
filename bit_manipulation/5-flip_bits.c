@@ -14,7 +14,7 @@ unsigned long int value = n ^ m;
 unsigned int bit_count = 0;
 while (value)
 {
-bit_count += value & 1;  
+bit_count += value & 1;
 value >>= 1;
 }
 return (bit_count);
